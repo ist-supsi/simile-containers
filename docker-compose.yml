@@ -1,0 +1,36 @@
+version: '3'
+services:
+
+  # kanban-postgres:
+  #   image: "postgres:9.6-alpine"
+  #   container_name: kanban-postgres
+  #   volumes:
+  #     - kanban-data:/var/lib/postgresql/data
+  #   ports:
+  #     - 5432:5432
+  #   environment:
+  #     - POSTGRES_DB:kanban
+  #     - POSTGRES_USER:kanban
+  #     - POSTGRES_PASSWORD:kanban
+
+  backend:
+    build: ./istsos
+    container_name: istsos
+    # environment:
+    #   - DB_SERVER=kanban-postgres
+    ports:
+      - 8000:8000
+    # links:
+    #   - kanban-postgres
+
+  frontend:
+    build: ./simile
+    container_name: simile
+    ports:
+      - 8080:8080
+    # links:
+    #   - kanban-app
+
+
+# volumes:
+#   kanban-data:
