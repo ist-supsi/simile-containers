@@ -14,19 +14,24 @@ services:
   #     - POSTGRES_PASSWORD:kanban
 
   backend:
-    build: ./istsos
+    build:
+      dockerfile: dev.Dockerfile
+      context: ./istsos
     container_name: istsos
+    volumes:
+      - ./istsos:/home/py4web/apps/istsos
     # environment:
     #   - DB_SERVER=kanban-postgres
     ports:
       - 8000:8000
+
     # links:
     #   - kanban-postgres
 
   frontend:
     build:
       context: ./simile
-      dockerfile: Dockerfile-front-dev
+      dockerfile: dev.Dockerfile
     container_name: simile
     ports:
       - 8080:8080
@@ -37,7 +42,8 @@ services:
       - /usr/src/app/node_modules
     environment:
       - CHOKIDAR_USEPOLLING=true
-    
+    command: npm run dev
+
 
 
 # volumes:

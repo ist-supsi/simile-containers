@@ -1,0 +1,16 @@
+version: '3'
+services:
+
+  istsos-proxy:
+    build: ./istsos
+    container_name: istsos-proxy
+    ports:
+      - 8000:8000
+
+  simile-gui:
+    build:
+      context: ./simile
+      dockerfile: deploy.Dockerfile
+    container_name: simile-gui
+    ports:
+      - 8080:8080
