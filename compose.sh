@@ -27,7 +27,7 @@ if [ ! -d "./${BACKENDAPP}" ]; then
 fi
 
 if [ ! -d "./${FRONTENDAPP}" ]; then
-    git clone --branch frontend https://github.com/gtergeomatica/template_progetto_simile.git $FRONTENDAPP;
+    git clone https://github.com/gtergeomatica/template_progetto_simile.git $FRONTENDAPP;
 fi
 
 if [ $build -eq 1 ]; then
