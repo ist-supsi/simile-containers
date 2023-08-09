@@ -21,13 +21,13 @@ while getopts "hbd" arg; do
 done
 
 if [ ! -d "./${BACKENDAPP}" ]; then
-    git clone https://github.com/gtergeomatica/istsosproxy.git $BACKENDAPP;
+    git clone https://github.com/ist-supsi/istsosproxy.git $BACKENDAPP;
     # 
     cp ./settings_private.py $BACKENDAPP/
 fi
 
 if [ ! -d "./${FRONTENDAPP}" ]; then
-    git clone https://github.com/gtergeomatica/template_progetto_simile.git $FRONTENDAPP;
+    git clone https://github.com/ist-supsi/template_progetto_simile.git $FRONTENDAPP;
 fi
 
 if [ $build -eq 1 ]; then
